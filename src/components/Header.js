@@ -31,7 +31,7 @@ export default function Header(props) {
       <div className="headerTop">
         <div className="contactButton"></div>
         <Link to="/" style={{ textDecoration: "none" }}>
-          <div className="headerText">DACA | Processing Times</div>
+          <div className="headerText">Passport | Processing Times</div>
         </Link>
         <Link to="/infoPage" style={{ textDecoration: "none" }}>
           <button className="infoButton">
@@ -90,14 +90,19 @@ export default function Header(props) {
       <div className="alertContainer">
         <div className="welcomeAlert">
           <h1>
-            <b>Notice</b>: This site aggregates form I-821D and form I-765 DACA (deferred action for childhood arrivals)
-            renewal case processing times to provide time estimates for renewal applicants.
+            <b>Notice</b>: This site aggregates passport processing times to provide time estimates for passport
+            renewals.
           </h1>
         </div>
         <div className="officialUscisAlert">
           <b>Info</b>: The information here is obtained from Reddit submissions and is <b>not</b> official. Use the
-          information here with official USCIS case processing times presented&nbsp;
-          <a href="https://egov.uscis.gov/processing-times/" alt="USCIS Link" target="_blank" rel="noreferrer">
+          information here with official travel.gov processing times presented&nbsp;
+          <a
+            href="https://https://travel.state.gov/content/travel/en/passports/how-apply/processing-times.html"
+            alt="State Department Link"
+            target="_blank"
+            rel="noreferrer"
+          >
             here
           </a>
         </div>

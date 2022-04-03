@@ -3,7 +3,7 @@ import "./Renewal.css";
 import uniqid from "uniqid";
 
 export default function AverageRenewal(props) {
-  const { submission, averageTime, loadingElement, loading, errorElement, hasError } = props;
+  const { submission, averageTime, loadingElement, loading, errorElement, hasError, expedited } = props;
   const { averageMonths } = useParams();
   let numMonth = 0;
   if (averageMonths === "oneMonth") {
@@ -21,10 +21,10 @@ export default function AverageRenewal(props) {
   ) : (
     <div className="informationContainer">
       <div className="renewalContainer">
-        <div className="renewalLengthTitle">Renewal Length</div>
+        <div className="renewalLengthTitle">{expedited ? "Expedited Renewal Length" : "Renewal Length"}</div>
         <div className="averageRenewalStatement">The average renewal in the past {numMonth} month(s) took</div>
         <div className="averageRenewalDays">{averageTime[averageMonths]} days</div>
-        <div className="renewalDetailTitle">Renewal Details</div>
+        <div className="renewalDetailTitle">{expedited ? "Expedited Renewal Details" : "Renewal Details"}</div>
         <div className="renewalAmount">Pulled from {submission[averageMonths].length} data points</div>
         <table className="approvalLinkTable">
           <thead>

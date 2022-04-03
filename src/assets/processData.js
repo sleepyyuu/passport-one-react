@@ -1,8 +1,8 @@
 import requestData from "./requestData";
 import * as chrono from "chrono-node";
 
-let advancedParoleSubmissions = [];
-let renewalSubmission = [];
+let expeditedRenewals = [];
+let regularRenewals = [];
 
 let createSubmissionObject = (submissionData) => {
   let initialDate = "";
@@ -21,17 +21,17 @@ let createSubmissionObject = (submissionData) => {
 };
 
 let processSubmissions = async () => {
-  let checkAdvancedParoleKeyWords = (submission) => {
+  let checkExpeditedRenewal = (submission) => {
     submission.title = submission.title.toLowerCase();
     submission.selftext = submission.selftext.toLowerCase();
-    let advancedParoleKeywords = ["advanced", "advanced parole"];
-    for (let keyword of advancedParoleKeywords) {
-      if (submission.link_flair_text === "Advanced Parole") {
+    if (submission.title.includes("non")) {
+      return false;
+    }
+    let expeditedRenewalKeywords = ["expedited", "expedite"];
+    for (let keyword of expeditedRenewalKeywords) {
+      //implement logit to adjust for when it saids "non expedited"
+      if (submission.title.includes(keyword) || submission.selftext.includes(keyword)) {
         return true;
-      } else {
-        if (submission.title.includes(keyword) || submission.selftext.includes(keyword)) {
-          return true;
-        }
       }
     }
     return false;
@@ -49,6 +49,7 @@ let processSubmissions = async () => {
       "accepted",
       "submit",
       "receipt",
+      "applied",
     ];
     for (let keyword of applicationStartWordBank) {
       let keywordIndex = submissionObject.text.indexOf(keyword);
@@ -267,11 +268,11 @@ let processSubmissions = async () => {
   let submissionArray = await requestData();
   for (let submission of submissionArray) {
     let placeHolder = createSubmissionObject(submission);
-    if (submission.selftext == "[removed]" || submission.selftext === undefined) {
+    if (submission.selftext === "[removed]" || submission.selftext === undefined) {
       //we don't want posts that are removed/no content
       placeHolder.initialDate = "";
       placeHolder.approvedDate = "";
-    } else if (checkAdvancedParoleKeyWords(submission)) {
+    } else if (checkExpeditedRenewal(submission)) {
       placeHolder = await extractDateContext(placeHolder);
       if (
         placeHolder.initialDate != "" &&
@@ -279,7 +280,7 @@ let processSubmissions = async () => {
         placeHolder.initialDate.getTime() != placeHolder.approvedDate.getTime() &&
         placeHolder.initialDate.getTime() < placeHolder.approvedDate.getTime()
       ) {
-        advancedParoleSubmissions.push(placeHolder);
+        expeditedRenewals.push(placeHolder);
       }
     } else {
       placeHolder = await extractDateContext(placeHolder);
@@ -289,11 +290,11 @@ let processSubmissions = async () => {
         placeHolder.initialDate.getTime() != placeHolder.approvedDate.getTime() &&
         placeHolder.initialDate.getTime() < placeHolder.approvedDate.getTime()
       ) {
-        renewalSubmission.push(placeHolder);
+        regularRenewals.push(placeHolder);
       }
     }
   }
-  return renewalSubmission;
+  return [expeditedRenewals, regularRenewals];
 };
 
 export default processSubmissions;

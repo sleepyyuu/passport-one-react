@@ -28,9 +28,7 @@ async function requestData() {
   };
 
   Promise.all([
-    await getSubmission(
-      "https://old.reddit.com/r/DACA/search/.json?sort=new&restrict_sr=on&q=flair%3AApplication%2BTimeline&limit=100"
-    ),
+    await getSubmission("https://old.reddit.com/r/Passports/search/.json?sort=new&restrict_sr=on&q=timeline&limit=100"),
   ]);
   return allResponses;
 }
