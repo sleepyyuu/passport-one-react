@@ -1,0 +1,47 @@
+.latestRenewalBox a:link,
+.latestRenewalBox a:visited {
+  text-decoration: none;
+  padding: 2px 22px 6px 22px;
+  color: white;
+  background-color: #47446d;
+  border-radius: 8px;
+}
+
+.latestRenewalBox a:hover {
+  background-color: #2f2d4b;
+}
+
+.latestRenewalLink {
+  font-size: 20px;
+}
+
+.latestRenewalLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #47446d;
+  padding: 10px 28px 10px 28px;
+  border: 1px rgba(237, 237, 237) solid;
+  border-radius: 7px;
+  width: 80px;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.latestRenewalLink a:link,
+.latestRenewalLink a:visited {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.latestRenewalTimeButton:hover,
+.averageRenewalTimeButton:hover,
+.allRenewalTimeButton:hover,
+.latestRenewalLink:hover {
+  color: rgb(238, 238, 238);
+  background-color: #7c7ba1;
+  border-color: #7c7ba1;
+}

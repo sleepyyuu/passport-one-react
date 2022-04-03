@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  height: 70%;
+  background-color: red;
+}
+
+.mainBody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

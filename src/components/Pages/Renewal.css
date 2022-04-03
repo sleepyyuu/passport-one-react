@@ -1,0 +1,112 @@
+.informationContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1%;
+  width: 60%;
+  font-size: 30px;
+  padding-bottom: 40px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.renewalLengthTitle,
+.renewalDetailTitle,
+.questionHeader,
+.contactHeader {
+  color: rgb(28, 28, 80);
+  font-weight: bold;
+  margin-top: 20px;
+  padding-left: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 1px;
+  text-align: left;
+}
+
+.renewalDetailTitle {
+  margin-top: 40px;
+}
+
+@media only screen and (max-width: 500px) {
+  .renewalLengthTitle,
+  .renewalDetailTitle,
+  .questionHeader,
+  .contactHeader {
+    text-align: center;
+  }
+}
+
+.averageRenewalDays {
+  color: #000000fc;
+  font-weight: 900;
+  padding-top: 5px;
+}
+
+.renewalAmount,
+.questionBody,
+.averageRenewalStatement,
+.latestRenewalStatement,
+.contactBody {
+  border-width: 0;
+  border-top: 2px solid rgb(0, 0, 0);
+  padding-top: 3px;
+  border-image: linear-gradient(to right, rgb(105, 105, 105), rgba(235, 233, 233, 0.39)) 3;
+  min-width: 50vw;
+  max-width: 50vw;
+  font-size: 1.2rem;
+}
+
+.renewalAmount,
+.questionBody {
+  padding: 3px 0 12px 0;
+}
+@media only screen and (max-width: 500px) {
+  .renewalAmount,
+  .questionBody,
+  .averageRenewalStatement,
+  .latestRenewalStatement,
+  .contactBody {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
+  .latestRenewalStatement {
+    height: 10vw;
+    line-height: 6vw;
+  }
+}
+
+.approvalLinkTable {
+  border: 1px solid #ddd;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  border-collapse: collapse;
+}
+
+.approvalLinkTable th {
+  font-size: 20px;
+  padding: 3px 16px 3px 16px;
+  background-color: #47446d;
+  color: white;
+}
+
+.approvalLinkTable th,
+.approvalLinkTable td {
+  border: 1px solid #ddd;
+}
+
+.approvalLinkTable a:link,
+.approvalLinkTable a:visited {
+  text-decoration: none;
+  padding: 2px 14px 4px 14px;
+  white-space: nowrap;
+}
+
+.approvalLinkTable a:visited {
+  background-color: rgba(151, 151, 151, 0.39);
+}
+
+.approvalLinkTable a:hover {
+  background-color: rgba(151, 151, 151, 0.39);
+}

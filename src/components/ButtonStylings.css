@@ -1,0 +1,133 @@
+.informationLinks {
+  width: 60%;
+  gap: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 11px;
+  margin-bottom: 11px;
+}
+
+@media only screen and (max-width: 500px) {
+  .informationLinks {
+    width: 85%;
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+}
+
+.latestRenewalTimeButton,
+.averageRenewalTimeButton,
+.allRenewalTimeButton {
+  background-color: #56537a;
+  color: white;
+  font-size: 1.1rem;
+  padding: 5px 14px 5px 14px;
+  border: 1px rgba(237, 237, 237) solid;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 500px) {
+  .latestRenewalTimeButton,
+  .averageRenewalTimeButton,
+  .allRenewalTimeButton {
+    line-height: 0.9;
+    padding: 7px 18px 7px 18px;
+    white-space: normal;
+  }
+}
+
+.latestRenewalTimeButton:hover,
+.averageRenewalTimeButton:hover,
+.allRenewalTimeButton:hover {
+  color: rgb(238, 238, 238);
+  background-color: #7c7ba1;
+  border-color: #7c7ba1;
+}
+
+.averageRenewalTimeButton {
+  display: flex;
+  gap: 10px;
+}
+
+.dropDownIcon {
+  font-size: 1.1rem;
+  position: relative;
+  bottom: 0.3rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .dropDownIcon {
+    font-size: 1.6rem;
+  }
+}
+
+.averageDropDownMenuContainer {
+  position: relative;
+}
+
+.averageDropDownMenu {
+  background-color: rgb(238, 238, 238);
+  min-width: 99%;
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 95%;
+  visibility: hidden;
+  box-shadow: 0px 6px 8px 1px rgba(0, 0, 0, 0.39);
+  opacity: 0;
+  -webkit-transition: all 0.6s ease-in-out 0.15s;
+  -moz-transition: all 0.6s ease-in-out 0.15s;
+  -o-transition: all 0.6s ease-in-out 0.15s;
+  -ms-transition: all 0.6s ease-in-out 0.15s;
+  transition: all 0.6s ease-in-out 0.15s;
+  z-index: 5;
+  border: 1px solid rgba(186, 205, 235, 0.83);
+  border-radius: 6px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.averageDropDownMenuShow {
+  background-color: rgb(238, 238, 238);
+  min-width: 99%;
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 95%;
+  visibility: visible;
+  box-shadow: 0px 6px 8px 1px rgba(0, 0, 0, 0.39);
+  opacity: 1;
+  -webkit-transition: all 0.6s ease-in-out 0.15s;
+  -moz-transition: all 0.6s ease-in-out 0.15s;
+  -o-transition: all 0.6s ease-in-out 0.15s;
+  -ms-transition: all 0.6s ease-in-out 0.15s;
+  transition: all 0.6s ease-in-out 0.15s;
+  z-index: 5;
+  border: 1px solid rgba(186, 205, 235, 0.83);
+  border-radius: 6px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.oneMonthButton,
+.threeMonthButton,
+.sixMonthButton {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(238, 238, 238);
+  color: rgb(85, 85, 85);
+  font-size: 1.1rem;
+  min-height: 35px;
+  text-align: left;
+  border: none;
+}
+
+.oneMonthButton:hover,
+.threeMonthButton:hover,
+.sixMonthButton:hover {
+  background-color: rgb(197 211 232 / 83%);
+}

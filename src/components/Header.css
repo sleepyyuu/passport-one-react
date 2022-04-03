@@ -1,0 +1,80 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bolder;
+  width: 100%;
+  text-align: center;
+  color: rgb(241, 238, 238);
+  height: 50px;
+  background-color: #47446d;
+  font-size: 1.6rem;
+  border-bottom: 5px solid red;
+}
+
+@media only screen and (max-width: 500px) {
+  .headerTop {
+    height: 45px;
+  }
+}
+
+.contactButton {
+  padding-left: 0.5vw;
+  width: 45px;
+}
+
+.headerText {
+  color: rgb(241, 238, 238);
+  font-size: 1.5rem;
+}
+
+.infoButton {
+  padding-right: 0.5vw;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+.alertContainer {
+  font-size: 0.8rem;
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+@media only screen and (max-width: 650px) {
+  .alertContainer {
+    width: 95%;
+    gap: 9px;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .alertContainer {
+    width: 55%;
+  }
+}
+
+h1 {
+  font-size: 0.8rem;
+  margin: 0px;
+  font-weight: normal;
+}
+
+.welcomeAlert,
+.officialUscisAlert {
+  background-color: rgb(197 211 232 / 83%);
+  padding: 10px 0px 10px 10px;
+  border-left: 12px solid red;
+}
+
+.officialUscisAlert {
+  border-left: 12px solid green;
+}
