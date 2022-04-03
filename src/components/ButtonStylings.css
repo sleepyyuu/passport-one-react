@@ -131,3 +131,16 @@
 .sixMonthButton:hover {
   background-color: rgb(197 211 232 / 83%);
 }
+
+.expediteToggleButton {
+  background-color: rgb(197 211 232 / 83%);
+  color: rgb(88, 87, 87);
+  padding: 4px 7px 4px 7px;
+  border: 1px rgba(237, 237, 237) solid;
+  border-radius: 7px;
+}
+
+.expediteToggleButton:hover {
+  background-color: rgba(176, 198, 230, 0.83);
+  color: rgb(88, 87, 87);
+}

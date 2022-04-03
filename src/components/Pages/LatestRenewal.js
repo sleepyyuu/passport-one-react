@@ -12,7 +12,7 @@ export default function LatestRenewal(props) {
         <div className="latestRenewalStatement">The latest renewal took</div>
         <div className="averageRenewalDays">{submission[0].processingTime} days</div>
         <div className="renewalDetailTitle">{expedited ? "Expedited Renewal Details" : "Renewal Details"}</div>
-        <div className="renewalAmount">Card produced/approved on {submission[0].formattedApprovedDate}</div>
+        <div className="renewalAmount">Passport produced/approved on {submission[0].formattedApprovedDate}</div>
         <div className="latestRenewalLink">
           <a href={"https://www.reddit.com" + submission[0].submissionData.permalink} target="_blank" rel="noreferrer">
             view post

@@ -126,7 +126,7 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
-      <Header></Header>
+      <Header expedited={expedited} setExpedited={setExpedited}></Header>
       {hasError ? (
         errorElement
       ) : (

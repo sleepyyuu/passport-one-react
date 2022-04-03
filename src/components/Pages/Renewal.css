@@ -23,6 +23,9 @@
   margin-bottom: 1px;
   text-align: left;
 }
+.renewalLengthTitle {
+  margin-top: 0px;
+}
 
 .renewalDetailTitle {
   margin-top: 40px;
@@ -34,6 +37,10 @@
   .questionHeader,
   .contactHeader {
     text-align: center;
+  }
+
+  .renewalLengthTitle {
+    margin-top: 5px;
   }
 }
 

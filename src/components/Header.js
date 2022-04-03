@@ -5,11 +5,17 @@ import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header(props) {
+  const { expedited, setExpedited } = props;
   const dropDownRef = useRef(null);
   const [dropDownActive, setDropDownActive] = useState(false);
   const dropDownClick = () => {
     setDropDownActive((dropDownActive) => {
       return !dropDownActive;
+    });
+  };
+  const expeditedClick = () => {
+    setExpedited((expedited) => {
+      return !expedited;
     });
   };
   useEffect(() => {
@@ -105,6 +111,12 @@ export default function Header(props) {
           >
             here
           </a>
+        </div>
+        <div className="expediteToggleContainer">
+          {expedited ? "For non-expedited renewals" : "For expedited renewals"}, click{" "}
+          <button className="expediteToggleButton" onClick={expeditedClick}>
+            here
+          </button>
         </div>
       </div>
     </div>
