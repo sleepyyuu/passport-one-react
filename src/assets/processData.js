@@ -24,7 +24,10 @@ let processSubmissions = async () => {
   let checkExpeditedRenewal = (submission) => {
     submission.title = submission.title.toLowerCase();
     submission.selftext = submission.selftext.toLowerCase();
-    if (submission.title.includes("non")) {
+    if (submission.title.includes("routine") || submission.title.includes("non")) {
+      return false;
+    }
+    if (submission.selftext.includes("non-expedited") || submission.selftext.includes("non expedited")) {
       return false;
     }
     let expeditedRenewalKeywords = ["expedited", "expedite"];
@@ -41,6 +44,7 @@ let processSubmissions = async () => {
     submissionObject.text = submissionObject.submissionData.selftext.toLowerCase();
     let applicationStartWordBank = [
       //we dont want to break loop, use word that has shortest index out of these
+      "applied",
       "sent",
       "mailed",
       "received",
@@ -49,7 +53,6 @@ let processSubmissions = async () => {
       "accepted",
       "submit",
       "receipt",
-      "applied",
     ];
     for (let keyword of applicationStartWordBank) {
       let keywordIndex = submissionObject.text.indexOf(keyword);
@@ -89,12 +92,7 @@ let processSubmissions = async () => {
           } else if (usePreDate == true && usePostDate == false) {
             dateToUse = chronoPreResult;
           } else if (usePreDate && usePostDate) {
-            //compare indexes of both, use closest
-            if (keywordIndex - chronoPreResult[0].index < chronoPostResult[0].index - (keywordIndex + keyword.length)) {
-              dateToUse = chronoPreResult;
-            } else {
-              dateToUse = chronoPostResult;
-            }
+            dateToUse = chronoPreResult;
           } else {
             continue;
           }
@@ -131,7 +129,7 @@ let processSubmissions = async () => {
           if (submissionObject.initialIndex == -1) {
             submissionObject.initialIndex = keywordIndex;
             submissionObject.initialDate = dateToUse[0].start.date();
-          } else if (submissionObject.initialIndex > keywordIndex) {
+          } else if (submissionObject.initialIndex < keywordIndex) {
             submissionObject.initialIndex = keywordIndex;
             submissionObject.initialDate = dateToUse[0].start.date();
           }
@@ -146,7 +144,16 @@ let processSubmissions = async () => {
   };
 
   let extractCompletionDate = (submissionObject) => {
-    let applicationEndWordBank = ["approved", "approval", "processed", "produced", "created", "produce"];
+    let applicationEndWordBank = [
+      "approved",
+      "approval",
+      "processed",
+      "produced",
+      "created",
+      "produce",
+      "passport received",
+      "shipped",
+    ];
     keyWordLoop: for (let keyword of applicationEndWordBank) {
       let keywordIndex = submissionObject.text.indexOf(keyword);
       if (keywordIndex != -1) {
@@ -187,12 +194,7 @@ let processSubmissions = async () => {
           } else if (usePreDate == true && usePostDate == false) {
             dateToUse = chronoPreResult;
           } else if (usePreDate && usePostDate) {
-            //compare indexes of both, use closest
-            if (keywordIndex - chronoPreResult[0].index < chronoPostResult[0].index - (keywordIndex + keyword.length)) {
-              dateToUse = chronoPreResult;
-            } else {
-              dateToUse = chronoPostResult;
-            }
+            dateToUse = chronoPreResult;
           } else {
             continue;
           }
