@@ -24,8 +24,11 @@ let processSubmissions = async () => {
   let checkExpeditedRenewal = (submission) => {
     submission.title = submission.title.toLowerCase();
     submission.selftext = submission.selftext.toLowerCase();
-    if (submission.title.includes("routine") || submission.title.includes("non")) {
-      return false;
+    let regularKeywords = ["routine", "non", "standard"];
+    for (let keyword of regularKeywords) {
+      if (submission.title.includes(keyword) || submission.title.includes(keyword)) {
+        return false;
+      }
     }
     if (submission.selftext.includes("non-expedited") || submission.selftext.includes("non expedited")) {
       return false;
@@ -53,6 +56,7 @@ let processSubmissions = async () => {
       "accepted",
       "submit",
       "receipt",
+      "in process",
     ];
     for (let keyword of applicationStartWordBank) {
       let keywordIndex = submissionObject.text.indexOf(keyword);
@@ -147,7 +151,6 @@ let processSubmissions = async () => {
     let applicationEndWordBank = [
       "approved",
       "approval",
-      "processed",
       "produced",
       "created",
       "produce",
