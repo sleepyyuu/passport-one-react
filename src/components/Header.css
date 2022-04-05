@@ -42,6 +42,7 @@
 }
 
 .infoButton {
+  display: flex;
   padding-right: 0.5vw;
   background-color: rgba(255, 255, 255, 0);
   border: none;
