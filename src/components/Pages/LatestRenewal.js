@@ -1,12 +1,14 @@
 import "./Renewal.css";
 import "./LatestRenewal.css";
+import ExpeditedToggler from "../ExpeditedToggler";
 
 export default function LatestRenewal(props) {
-  const { submission, loadingElement, loading, expedited } = props;
+  const { submission, loadingElement, loading, expedited, setExpedited } = props;
   return loading ? (
     loadingElement
   ) : (
     <div className="informationContainer">
+      <ExpeditedToggler expedited={expedited} setExpedited={setExpedited} />
       <div className="renewalContainer">
         <div className="renewalLengthTitle">{expedited ? "Expedited Renewal Length" : "Renewal Length"}</div>
         <div className="latestRenewalStatement">The latest renewal took</div>

@@ -132,15 +132,31 @@
   background-color: rgb(197 211 232 / 83%);
 }
 
-.expediteToggleButton {
-  background-color: rgb(197 211 232 / 83%);
-  color: rgb(88, 87, 87);
-  padding: 4px 7px 4px 7px;
-  border: 1px rgba(237, 237, 237) solid;
-  border-radius: 7px;
+.expediteToggleButton,
+.selectedExpediteButton {
+  width: 50%;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 1rem;
+  color: rgb(56, 56, 56);
+  padding: 4px 13px 4px 13px;
+  border: 0;
+  border-bottom: 3px solid;
+  border-bottom-color: rgb(160, 160, 160);
 }
 
 .expediteToggleButton:hover {
-  background-color: rgba(176, 198, 230, 0.83);
-  color: rgb(88, 87, 87);
+  border-bottom-color: rgb(214, 213, 213);
+}
+
+.selectedExpediteButton {
+  border-bottom-color: #e40d0d;
+}
+
+@media only screen and (max-width: 500px) {
+  .expediteToggleButton,
+  .selectedExpediteButton {
+    white-space: pre-wrap;
+    width: 40%;
+  }
 }

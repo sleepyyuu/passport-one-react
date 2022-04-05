@@ -141,6 +141,7 @@ function App() {
                   loadingElement={loadingElement}
                   loading={loading}
                   expedited={expedited}
+                  setExpedited={setExpedited}
                 />
               }
             />
@@ -155,6 +156,7 @@ function App() {
                   errorElement={errorElement}
                   hasError={hasError}
                   expedited={expedited}
+                  setExpedited={setExpedited}
                 />
               }
             />
@@ -169,6 +171,7 @@ function App() {
                   errorElement={errorElement}
                   hasError={hasError}
                   expedited={expedited}
+                  setExpedited={setExpedited}
                 />
               }
             />

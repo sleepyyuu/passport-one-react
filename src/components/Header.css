@@ -84,15 +84,3 @@ h1 {
 .officialUscisAlert {
   border-left: 12px solid green;
 }
-
-.expediteToggleContainer {
-  color: rgb(39, 39, 39);
-  font-size: 1rem;
-  text-align: center;
-}
-
-@media only screen and (max-width: 650px) {
-  .expediteToggleContainer {
-    margin-top: 2px;
-  }
-}

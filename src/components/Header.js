@@ -13,11 +13,6 @@ export default function Header(props) {
       return !dropDownActive;
     });
   };
-  const expeditedClick = () => {
-    setExpedited((expedited) => {
-      return !expedited;
-    });
-  };
   useEffect(() => {
     const pageClickEvent = (e) => {
       if (dropDownRef.current !== null && !dropDownRef.current.contains(e.target)) {
@@ -104,19 +99,13 @@ export default function Header(props) {
           <b>Info</b>: The information here is obtained from Reddit submissions and is <b>not</b> official. Use the
           information here with official travel.gov processing times presented&nbsp;
           <a
-            href="https://https://travel.state.gov/content/travel/en/passports/how-apply/processing-times.html"
+            href="https://travel.state.gov/content/travel/en/passports/how-apply/processing-times.html"
             alt="State Department Link"
             target="_blank"
             rel="noreferrer"
           >
             here
           </a>
-        </div>
-        <div className="expediteToggleContainer">
-          {expedited ? "For non-expedited renewals" : "For expedited renewals"}, click{" "}
-          <button className="expediteToggleButton" onClick={expeditedClick}>
-            here
-          </button>
         </div>
       </div>
     </div>

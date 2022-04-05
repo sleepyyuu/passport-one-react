@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import "./Renewal.css";
 import uniqid from "uniqid";
+import ExpeditedToggler from "../ExpeditedToggler";
 
 export default function AverageRenewal(props) {
-  const { submission, averageTime, loadingElement, loading, errorElement, hasError, expedited } = props;
+  const { submission, averageTime, loadingElement, loading, errorElement, hasError, expedited, setExpedited } = props;
   const { averageMonths } = useParams();
   let numMonth = 0;
   if (averageMonths === "oneMonth") {
@@ -20,6 +21,7 @@ export default function AverageRenewal(props) {
     loadingElement
   ) : (
     <div className="informationContainer">
+      <ExpeditedToggler expedited={expedited} setExpedited={setExpedited} />
       <div className="renewalContainer">
         <div className="renewalLengthTitle">{expedited ? "Expedited Renewal Length" : "Renewal Length"}</div>
         <div className="averageRenewalStatement">The average renewal in the past {numMonth} month(s) took</div>

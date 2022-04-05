@@ -1,8 +1,9 @@
 import "./Renewal.css";
 import uniqid from "uniqid";
+import ExpeditedToggler from "../ExpeditedToggler";
 
 export default function AllRenewal(props) {
-  const { submission, averageTime, loadingElement, loading, errorElement, hasError, expedited } = props;
+  const { submission, averageTime, loadingElement, loading, errorElement, hasError, expedited, setExpedited } = props;
   if (hasError) {
     return errorElement;
   }
@@ -10,6 +11,7 @@ export default function AllRenewal(props) {
     loadingElement
   ) : (
     <div className="informationContainer">
+      <ExpeditedToggler expedited={expedited} setExpedited={setExpedited} />
       <div className="renewalContainer">
         <div className="renewalLengthTitle">{expedited ? "Expedited Renewal Length" : "Renewal Length"}</div>
         <div className="averageRenewalStatement">The average renewal from ALL obtainable submissions took</div>
