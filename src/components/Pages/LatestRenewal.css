@@ -1,6 +1,5 @@
 .latestRenewalBox a:link,
 .latestRenewalBox a:visited {
-  text-decoration: none;
   padding: 2px 22px 6px 22px;
   color: white;
   background-color: #47446d;
@@ -11,8 +10,14 @@
   background-color: #2f2d4b;
 }
 
+.latestRenewalLinkContainer a {
+  text-decoration: none;
+}
+
 .latestRenewalLink {
   font-size: 20px;
+  color: white;
+  text-decoration: none;
 }
 
 .latestRenewalLink {
