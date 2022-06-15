@@ -31,11 +31,7 @@ let processSubmissions = async () => {
         return false;
       }
     }
-    if (
-      submission.selftext.includes("non-expedited") ||
-      submission.selftext.includes("non expedited") ||
-      submission.selftext.includes("routine")
-    ) {
+    if (submission.selftext.includes("non-expedited") || submission.selftext.includes("non expedited")|| submission.selftext.includes("routine")) {
       return false;
     }
     let expeditedRenewalKeywords = ["expedited", "expedite"];
