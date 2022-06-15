@@ -1,5 +1,6 @@
 import requestData from "./requestData";
 import * as chrono from "chrono-node";
+import moment from "moment";
 
 let expeditedRenewals = [];
 let regularRenewals = [];
@@ -76,11 +77,7 @@ let processSubmissions = async () => {
           chronoPreResult = [chronoPreResult[chronoPreResult.length - 1]];
           //check if there is a \n or . between keyword and date
           let usePreDate = true;
-          for (
-            let beginningIndex = chronoPreResult[0].index;
-            beginningIndex < preKeywordSlice.length;
-            beginningIndex++
-          ) {
+          for (let beginningIndex = chronoPreResult[0].index; beginningIndex < preKeywordSlice.length; beginningIndex++) {
             if (preKeywordSlice[beginningIndex] == "\n" || preKeywordSlice[beginningIndex] == ".") {
               usePreDate = false;
             }
@@ -148,15 +145,7 @@ let processSubmissions = async () => {
   };
 
   let extractCompletionDate = (submissionObject) => {
-    let applicationEndWordBank = [
-      "approved",
-      "approval",
-      "produced",
-      "created",
-      "produce",
-      "passport received",
-      "shipped",
-    ];
+    let applicationEndWordBank = ["approved", "approval", "produced", "created", "produce", "passport received", "shipped"];
     keyWordLoop: for (let keyword of applicationEndWordBank) {
       let keywordIndex = submissionObject.text.indexOf(keyword);
       if (keywordIndex != -1) {
@@ -177,11 +166,7 @@ let processSubmissions = async () => {
           //check if there is a \n or . between keyword and date
           //if another keyword matches, use the date it gets if index is bigger
           let usePreDate = true;
-          for (
-            let beginningIndex = chronoPreResult[0].index;
-            beginningIndex < preKeywordSlice.length;
-            beginningIndex++
-          ) {
+          for (let beginningIndex = chronoPreResult[0].index; beginningIndex < preKeywordSlice.length; beginningIndex++) {
             if (preKeywordSlice[beginningIndex] == "\n" || preKeywordSlice[beginningIndex] == ".") {
               usePreDate = false;
             }
@@ -255,11 +240,7 @@ let processSubmissions = async () => {
 
   let extractDateContext = (submissionObject) => {
     submissionObject.text = submissionObject.submissionData.selftext;
-    if (
-      submissionObject.text == "[removed]" ||
-      submissionObject.text == undefined ||
-      !/\d/.test(submissionObject.text)
-    ) {
+    if (submissionObject.text == "[removed]" || submissionObject.text == undefined || !/\d/.test(submissionObject.text)) {
       submissionObject.initialDate = "";
       submissionObject.approvedDate = "";
       return submissionObject;
@@ -283,7 +264,8 @@ let processSubmissions = async () => {
         placeHolder.initialDate != "" &&
         placeHolder.approvedDate != "" &&
         placeHolder.initialDate.getTime() != placeHolder.approvedDate.getTime() &&
-        placeHolder.initialDate.getTime() < placeHolder.approvedDate.getTime()
+        placeHolder.initialDate.getTime() < placeHolder.approvedDate.getTime() &&
+        placeHolder.approvedDate.getTime() - placeHolder.initialDate.getTime() < 200 * 24 * 60 * 60 * 1000
       ) {
         expeditedRenewals.push(placeHolder);
       }
@@ -293,7 +275,9 @@ let processSubmissions = async () => {
         placeHolder.initialDate != "" &&
         placeHolder.approvedDate != "" &&
         placeHolder.initialDate.getTime() != placeHolder.approvedDate.getTime() &&
-        placeHolder.initialDate.getTime() < placeHolder.approvedDate.getTime()
+        placeHolder.initialDate.getTime() < placeHolder.approvedDate.getTime() &&
+        placeHolder.initialDate.getTime() < placeHolder.approvedDate.getTime() &&
+        placeHolder.approvedDate.getTime() - placeHolder.initialDate.getTime() < 200 * 24 * 60 * 60 * 1000
       ) {
         regularRenewals.push(placeHolder);
       }
