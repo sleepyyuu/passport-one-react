@@ -11,10 +11,7 @@ async function requestData() {
         });
         response = await response.json();
         response = response.data;
-        for (let submission of response) {
-          submission.postedDate = new Date(1000 * submission.created_utc);
-          allResponses.push(submission);
-        }
+        allResponses = allResponses.concat(response);
         // response = await response.json();
         // response = response.data.children;
         // for (let submission of response) {
