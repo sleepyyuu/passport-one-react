@@ -257,7 +257,6 @@ let processSubmissions = async () => {
 
   let submissionArray = await requestData();
   for (let submission of submissionArray) {
-    submission.postedDate = new Date(1000 * submission.created_utc);
     let placeHolder = createSubmissionObject(submission);
     if (submission.selftext === "[removed]" || submission.selftext === undefined) {
       //we don't want posts that are removed/no content
